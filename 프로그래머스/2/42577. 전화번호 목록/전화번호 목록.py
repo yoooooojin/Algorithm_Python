@@ -1,6 +1,5 @@
 def solution(phone_book):
     answer = True
-    hash_map = {}
     
     phone_book.sort()
     
