@@ -15,5 +15,4 @@ def solution(k, dungeons):
         count = 0
         k = reset_k
             
-            
     return answer
