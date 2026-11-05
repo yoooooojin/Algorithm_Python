@@ -14,21 +14,15 @@ def count(start, graph, cut_a, cut_b):
     return len(visited)
 
 def solution(n, wires):
-    answer = 100000
+    answer = n
     
     graph = [[] for _ in range(n + 1)]
     for a, b in wires:
         graph[a].append(b)
         graph[b].append(a)
     
-    for wire in wires:
-        cut_a = wire[0]
-        cut_b = wire[1]
-        
-        one = count(wire[0], graph, cut_a, cut_b)
-        another = count(wire[1], graph, cut_a, cut_b)
-        
-        if abs(one - another) < answer:
-            answer = abs(one - another)
+    for a, b in wires:
+        one = count(a, graph, a, b)
+        answer = min(answer, abs(one - (n - one)))
         
     return answer
